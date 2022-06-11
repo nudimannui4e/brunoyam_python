@@ -1,23 +1,40 @@
-data_pizza = {
-        'margarita' : 400,
-        'carbonara' : 500,
-        }
+import json
+
+#data_pizza = {
+#        'margarita' : 400,
+#        'carbonara' : 500,
+#        }
+#with open('pizza.json', 'w') as f:
+#    json.dump(data_pizza, f)
+'''
+Инициация файла. Код выше - запускается 1 раз
+'''
 
 def add_pizza(name, price):
+    with open('pizza.json', 'r') as f:
+        data_pizza = json.load(f)
     if name not in data_pizza.keys():
         data_pizza[name] = price
+        with open('pizza.json', 'w') as f:
+            json.dump(data_pizza, f)
     else:
         print('Pizza already exist')
 
 
 def del_pizza(name):
+    with open('pizza.json', 'r') as f:
+        data_pizza = json.load(f)
     if name in data_pizza.keys():
         del data_pizza[name]
+        with open('pizza.json', 'w') as f:
+            json.dump(data_pizza, f)
     else:
         print('Pizza not exist')
 
 
 def order_pizza():
+    with open('pizza.json', 'r') as f:
+        data_pizza = json.load(f)
     order = []
     cost = 0
     while True:
