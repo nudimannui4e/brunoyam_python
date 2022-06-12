@@ -64,13 +64,43 @@ five_word(s)
 
 print('level 3')
 
-a_massiv = [56,9,11,2]
-b_massiv = [3,81,5]
+a_array = [56,9,11,2]
+b_array = [3,81,5]
 
 def max_number(array_input):
-    for i in array_input:
-        if i > array_input[i+1]:
-            print(i)
-    #print(''.join(sort_mas))
 
-max_number(a_massiv)
+    '''
+    Примерный смысл такой:
+    создается 2 массива - 1 для максимальных чисел
+    2-ой для минимальный
+
+    Дальше, если длина числа больше 1, то такие числа сравниваются в лоб
+    '''
+    min_array = []
+    max_array = []
+    final_array = []
+    # раскидываются числа до 9 в 1 массив, 
+    # двузначные и больше - во второй
+    for element in array_input:
+        if len(str(element)) > 1:
+            max_array.append(element)
+        else:
+            min_array.append(element)
+
+    min_array.sort(reverse=True)
+    max_array.sort(reverse=True)
+    print(max_array, min_array)
+    for i in max_array:
+        for j in min_array:
+            print(i, j)
+            if (i // 10) > j:
+                if i not in final_array:
+                    final_array.append(i)
+            elif j > (i // 10):
+                if j not in final_array:
+                    final_array.append(j)
+    
+    print(final_array)
+
+max_number(a_array)
+max_number(b_array)
