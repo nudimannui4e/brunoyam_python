@@ -11,10 +11,10 @@ def area(a, b, c):
 
     print('Площадь треугольника:', format(s,".2f"))
 
-#a = int(input('Сторона А? '))
-#b = int(input('Сторона B? '))
-#c = int(input('Сторона C? '))
-#area(a,b,c)
+a = int(input('Сторона А? '))
+b = int(input('Сторона B? '))
+c = int(input('Сторона C? '))
+area(a,b,c)
 
 print('level 2')
 
@@ -59,7 +59,7 @@ def five_word(string):
     clear_string = ' '.join(dict_five)
     print(f'Чистый вывод слов, меньше 5 символов:\n{clear_string}\n')
 
-#five_word(s)
+five_word(s)
 
 
 print('level 3')
