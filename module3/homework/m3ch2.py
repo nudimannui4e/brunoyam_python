@@ -7,8 +7,11 @@ for i in l:
         repeat.append(i)
 print(f'Исходный список:\n{l}')
 print(f'Найденные повторяющиеся элементы:\n{repeat}')
+print('Найденные повторы, выведенные по одному:')
+set_repeat = set(repeat)
+print(*set_repeat, sep=", ")
 
-print('level 2')
+print('\nlevel 2')
 
 from random import randint
 
