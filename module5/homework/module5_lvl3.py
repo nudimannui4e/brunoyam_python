@@ -12,32 +12,43 @@ class Warrior:
         self.health = health
         self.def_point = def_point
         self.stamina = stamina
-
-    def hit(self, other):
-        hit = 20
-        print(f'{self.name} нанес урона {other.name} на {hit} очков.')
-        other.health -= hit
-        print(f'{other.name} осталось {other.health} здоровья.')
+        self.role = 0
 
     def __str__(self):
         return f'{self.name}, {self.health} здоровья.'
 
-    def attack(self, other):
-        self.stamina -= 10
-        hit_random = randint(0, 20)
-        self.def_point -= randint(0, 10)
+    def defence(self):
+        if self.def_point > 0:
+            self.health -= randint(0, 20)
+            self.def_point -= randint(0, 10)
+        else:
+            self.health -= randint(10, 30)
 
-    def defence(self, other):
-        pass
+    def fight(self, other):
+        if (self.role == 0) and (other.role == 0):
+            return
+        if (self.role == 0) and (other.role == 1):
+            self.defence()
+            return
+        if (self.role == 1) and (other.role == 0):
+            other.defence()
+            return
+        if (self.role == 1) and (other.role == 1):
+            self.stamina -= randint(10, 30)
+            self.health -= randint(10, 30)
+            other.stamina -= randint(10, 30)
+            other.health -= randint(10, 30)
 
 
 units = [Warrior("Ассасин"), Warrior("Тамплиер")]
 
 while True:
-    gods_random = randint(0, 1)
-    units[gods_random].hit(units[gods_random - 1])
-    if units[gods_random - 1].health <= 0:
-        winner = units[gods_random]
-        break
-
-print(f'\nПобедил {winner}')
+    for unit in units:
+        print(unit)
+        if unit.health <= 10:
+            print(f'\nУмер {unit.name}')
+            exit(0)
+        unit.role = randint(0, 1)  # attack =1, def = 0
+        if unit.role == 1:
+            print(f'\n {unit.name} атакует')
+    units[0].fight(units[1])
