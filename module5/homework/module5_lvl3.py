@@ -7,9 +7,11 @@ from random import randint
 
 
 class Warrior:
-    def __init__(self, name, health=100):
+    def __init__(self, name, health=100, def_point=30, stamina=50):
         self.name = name
         self.health = health
+        self.def_point = def_point
+        self.stamina = stamina
 
     def hit(self, other):
         hit = 20
@@ -19,6 +21,14 @@ class Warrior:
 
     def __str__(self):
         return f'{self.name}, {self.health} здоровья.'
+
+    def attack(self, other):
+        self.stamina -= 10
+        hit_random = randint(0, 20)
+        self.def_point -= randint(0, 10)
+
+    def defence(self, other):
+        pass
 
 
 units = [Warrior("Ассасин"), Warrior("Тамплиер")]
