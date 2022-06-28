@@ -32,10 +32,9 @@ class Warrior:
 
 
 units = [Warrior("Ассасин"), Warrior("Тамплиер")]
-gods_random = randint(0, 1)
 
 while True:
-    gods_random = not gods_random
+    gods_random = randint(0, 1)
     units[gods_random].hit(units[gods_random - 1])
     if units[gods_random - 1].health <= 0:
         winner = units[gods_random]
