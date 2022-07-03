@@ -28,7 +28,8 @@ class Model(Post):
 
         with open('date_of_class.json', 'w') as out:
             for key, val in results.items():
-                out.write('{}:{}\n'.format(key, val))
+                #out.write('{}:{}\n'.format(key, val))
+                json.dump(val, out)
 
         return results
 
