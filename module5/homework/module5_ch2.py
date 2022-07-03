@@ -27,9 +27,11 @@ class Model(Post):
             results[attribute] = getattr(Post, attribute)
 
         with open('date_of_class.json', 'w') as out:
-            for key, val in results.items():
+            json.dump(results, out, indent=4)
+            print(out)
+            #for key, val in results.items():
                 #out.write('{}:{}\n'.format(key, val))
-                json.dump(val, out)
+                #json.dump(val, out)
 
         return results
 

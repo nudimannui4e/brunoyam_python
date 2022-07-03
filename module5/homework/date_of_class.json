@@ -1,1 +1,6 @@
-"Tolstov""something important""2022-07-03""Awesome project"
+{
+    "author": "Tolstov",
+    "content": "something important",
+    "date_posted": "2022-07-03",
+    "title": "Awesome project"
+}
