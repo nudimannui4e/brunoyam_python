@@ -28,14 +28,15 @@ class Model(Post):
 
         with open('date_of_class.json', 'w') as out:
             json.dump(results, out, indent=4)
+            """
+            Старый вариант, немного не по-задаче делает:
             print(out)
-            #for key, val in results.items():
-                #out.write('{}:{}\n'.format(key, val))
-                #json.dump(val, out)
+            for key, val in results.items():
+                out.write('{}:{}\n'.format(key, val))
+                json.dump(val, out)
+            """
 
         return results
-
-
 
 
 b = Model()
